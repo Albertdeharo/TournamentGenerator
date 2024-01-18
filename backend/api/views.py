@@ -4,6 +4,8 @@ from django.views import View
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from .models import Company
+from .models import Tournament
+
 import json
 
 # Create your views here.
@@ -59,3 +61,25 @@ class CompanyView(View):
         else:
             datos={'message':"Company no encontrada"}
         return JsonResponse(datos)
+
+class TournamentListView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self,request, id=0):
+        if(id > 0):
+            tournaments=list(Tournament.objects.filter(id=id).values())
+            if len(tournaments) > 0:
+                tournament=tournaments[0]
+                datos={'message':"Success", 'tournament': tournament}
+            else:
+                datos={'message':"tournament no encontrada"}
+            return JsonResponse(datos)
+        else:
+            tournaments=list(Tournament.objects.values())
+            if len(tournaments) > 0:
+                datos={'message':"Success", 'tournaments': tournaments}
+            else:
+                datos={'message':"tournaments no encontrada"}
+            return JsonResponse(datos)

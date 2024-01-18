@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>hello world 123</h1>
     <MyComponent />
+    <TournamentsList />
   </div>
 </template>
 
 <script>
 import MyComponent from './components/MyComponent.vue'
+import TournamentsList from './components/TournamentsList.vue'
 
 export default {
   name: 'App',
   components: {
-    MyComponent
+    MyComponent,
+    TournamentsList
   }
 }
 </script>

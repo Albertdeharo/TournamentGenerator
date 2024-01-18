@@ -2,8 +2,9 @@
   <div>
     <h1>Lista de Proyectos</h1>
     <ul>
-      <li v-for="project in projects" :key="project.id">{{ project.name }} - {{ project.website }} - {{ project.foundation }}</li>
-      <!-- Ajusta las propiedades de tu objeto 'project' según la respuesta de tu API -->
+      <li v-for="project in projects" :key="project.id">
+        {{ project.name }} - {{ project.website }} - {{ project.foundation }}
+      </li>
     </ul>
   </div>
 </template>
