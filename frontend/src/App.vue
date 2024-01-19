@@ -1,20 +1,15 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <MyComponent />
-    <TournamentsList />
+    <router-view />
   </div>
 </template>
 
 <script>
-import MyComponent from './components/MyComponent.vue'
-import TournamentsList from './components/TournamentsList.vue'
 
 export default {
   name: 'App',
   components: {
-    MyComponent,
-    TournamentsList
   }
 }
 </script>
